@@ -13,52 +13,98 @@
             color: #FFFFFF;
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 40px 24px;
         }
-        .container {
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
         }
         .icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 32px;
+            width: 140px;
+            height: 140px;
+            margin-bottom: 40px;
         }
         .name {
-            font-size: 32px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            margin-bottom: 48px;
+            font-size: clamp(56px, 12vw, 96px);
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
         }
         .name span {
             color: #2563EB;
         }
-        .login {
+        .tagline {
+            font-size: 18px;
+            color: #64748B;
+            margin-bottom: 48px;
+            letter-spacing: 0.5px;
+        }
+        .buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
             display: inline-block;
+            padding: 14px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        .btn-primary {
             background: #2563EB;
             color: #FFFFFF;
-            padding: 12px 32px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 15px;
-            transition: background 0.2s;
         }
-        .login:hover {
+        .btn-primary:hover {
             background: #1D4ED8;
+        }
+        .btn-secondary {
+            background: transparent;
+            color: #FFFFFF;
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+        .btn-secondary:hover {
+            border-color: rgba(255,255,255,0.5);
+        }
+        footer {
+            padding-top: 60px;
+            color: #475569;
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <svg class="icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 22 L16 8 L24 22" stroke="#2563EB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="8" cy="22" r="2" fill="#2563EB"/>
-            <circle cx="16" cy="8" r="2" fill="#2563EB"/>
-            <circle cx="24" cy="22" r="2" fill="#2563EB"/>
+    <div class="main">
+        <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <!-- Bold architectural monogram -->
+            <defs>
+                <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#3B82F6"/>
+                    <stop offset="100%" style="stop-color:#1D4ED8"/>
+                </linearGradient>
+            </defs>
+            <!-- Outer hexagon frame -->
+            <polygon points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5" fill="none" stroke="url(#grad)" stroke-width="3"/>
+            <!-- Inner architectural A -->
+            <path d="M50 20 L75 75 L65 75 L58 55 L42 55 L35 75 L25 75 Z M50 35 L45 50 L55 50 Z" fill="url(#grad)"/>
         </svg>
         <div class="name">Daed<span>Arch</span></div>
-        <a href="https://app.daedarch.ai" class="login">Sign In</a>
+        <div class="tagline">By invitation only</div>
+        <div class="buttons">
+            <a href="https://app.daedarch.ai" class="btn btn-primary">Sign In</a>
+            <a href="mailto:hello@daedarch.ai?subject=Demo%20Request" class="btn btn-secondary">Request Demo</a>
+        </div>
     </div>
+    <footer>&copy; 2026 DaedArch Corporation</footer>
 </body>
 </html>
