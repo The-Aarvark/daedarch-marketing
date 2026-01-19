@@ -3,230 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DaedArch - Architecture for the Impossible</title>
-    <meta name="description" content="Enterprise-grade integration infrastructure that turns complexity into competitive advantage. 750+ production connectors.">
+    <title>DaedArch</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --deep-navy: #0A1628;
-            --tech-blue: #2563EB;
-            --slate: #64748B;
-            --success-green: #10B981;
-            --surface: #F8FAFC;
-            --white: #FFFFFF;
-        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--deep-navy);
-            color: var(--white);
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0A1628;
+            color: #FFFFFF;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        
-        /* Nav */
-        nav {
-            padding: 24px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+        .container {
+            text-align: center;
         }
-        nav .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: 700; color: var(--white); text-decoration: none; }
-        .logo span { color: var(--tech-blue); }
-        .nav-links { display: flex; gap: 32px; align-items: center; }
-        .nav-links a { color: var(--slate); text-decoration: none; font-size: 14px; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--white); }
-        .btn-primary {
-            background: var(--tech-blue);
-            color: var(--white);
-            padding: 10px 20px;
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 32px;
+        }
+        .name {
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 48px;
+        }
+        .name span {
+            color: #2563EB;
+        }
+        .login {
+            display: inline-block;
+            background: #2563EB;
+            color: #FFFFFF;
+            padding: 12px 32px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: 500;
-            font-size: 14px;
+            font-size: 15px;
             transition: background 0.2s;
         }
-        .btn-primary:hover { background: #1D4ED8; }
-
-        /* Hero */
-        .hero {
-            padding: 120px 0 80px;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: clamp(40px, 6vw, 72px);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
-        .hero h1 span { color: var(--tech-blue); }
-        .hero p {
-            font-size: 20px;
-            color: var(--slate);
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-        .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            padding: 10px 20px;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: border-color 0.2s;
-        }
-        .btn-secondary:hover { border-color: var(--white); }
-
-        /* Stats */
-        .stats {
-            padding: 60px 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .stats .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
-        .stat-number { font-size: 48px; font-weight: 700; color: var(--tech-blue); }
-        .stat-label { font-size: 14px; color: var(--slate); margin-top: 8px; }
-
-        /* Features */
-        .features { padding: 100px 0; }
-        .features h2 { font-size: 36px; text-align: center; margin-bottom: 60px; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .feature {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 12px;
-            padding: 32px;
-        }
-        .feature-icon { font-size: 32px; margin-bottom: 16px; }
-        .feature h3 { font-size: 20px; margin-bottom: 12px; }
-        .feature p { color: var(--slate); font-size: 14px; }
-
-        /* CTA */
-        .cta {
-            padding: 100px 0;
-            text-align: center;
-            background: linear-gradient(180deg, transparent 0%, rgba(37, 99, 235, 0.1) 100%);
-        }
-        .cta h2 { font-size: 36px; margin-bottom: 16px; }
-        .cta p { color: var(--slate); margin-bottom: 32px; }
-
-        /* Footer */
-        footer {
-            padding: 40px 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-            color: var(--slate);
-            font-size: 14px;
-        }
-        footer a { color: var(--slate); text-decoration: none; }
-        footer a:hover { color: var(--white); }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero { padding: 80px 0 60px; }
+        .login:hover {
+            background: #1D4ED8;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <a href="/" class="logo">Daed<span>Arch</span></a>
-            <div class="nav-links">
-                <a href="#features">Platform</a>
-                <a href="#solutions">Solutions</a>
-                <a href="https://docs.daedarch.ai">Docs</a>
-                <a href="mailto:hello@daedarch.ai" class="btn-primary">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <div class="container">
-            <h1>Architecture for the <span>Impossible</span></h1>
-            <p>Enterprise-grade integration infrastructure that turns complexity into competitive advantage. We connect the unconnectable.</p>
-            <div class="hero-cta">
-                <a href="mailto:hello@daedarch.ai" class="btn-primary">Request Demo</a>
-                <a href="https://docs.daedarch.ai" class="btn-secondary">View Documentation</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="stats">
-        <div class="container">
-            <div>
-                <div class="stat-number">750+</div>
-                <div class="stat-label">Production Connectors</div>
-            </div>
-            <div>
-                <div class="stat-number">99.9%</div>
-                <div class="stat-label">Uptime SLA</div>
-            </div>
-            <div>
-                <div class="stat-number">Days</div>
-                <div class="stat-label">Not Months to Deploy</div>
-            </div>
-            <div>
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">Enterprise Support</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="features" id="features">
-        <div class="container">
-            <h2>Build what they said couldn't be done</h2>
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">🔗</div>
-                    <h3>Connector Library</h3>
-                    <p>750+ pre-built enterprise connectors for SAP, Oracle, Salesforce, banking cores, and more. Battle-tested in production.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Orchestration Engine</h3>
-                    <p>Unified integration orchestration with policy-based routing, transformation, and governance built-in.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Enterprise Security</h3>
-                    <p>SOC2 compliant with end-to-end encryption, audit trails, and evidence bundles for every transaction.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📊</div>
-                    <h3>Command Center</h3>
-                    <p>Real-time visibility into all integrations with alerting, monitoring, and operational dashboards.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🌐</div>
-                    <h3>Multi-Chain Support</h3>
-                    <p>Blockchain oracles and smart contract triggers for verified, immutable transaction records.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Rapid Deployment</h3>
-                    <p>Go live in days, not months. Our pre-built connectors eliminate custom development cycles.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to connect the unconnectable?</h2>
-            <p>Let's discuss your integration challenges.</p>
-            <a href="mailto:hello@daedarch.ai" class="btn-primary">Get in Touch</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 DaedArch Corporation. A subsidiary of <a href="https://icarusflew.ai">Icarus Flew Inc.</a></p>
-        </div>
-    </footer>
+    <div class="container">
+        <svg class="icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 22 L16 8 L24 22" stroke="#2563EB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="8" cy="22" r="2" fill="#2563EB"/>
+            <circle cx="16" cy="8" r="2" fill="#2563EB"/>
+            <circle cx="24" cy="22" r="2" fill="#2563EB"/>
+        </svg>
+        <div class="name">Daed<span>Arch</span></div>
+        <a href="https://app.daedarch.ai" class="login">Sign In</a>
+    </div>
 </body>
 </html>
