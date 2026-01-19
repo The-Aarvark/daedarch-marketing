@@ -1,0 +1,2 @@
+# Redirect www to root
+https://www.daedarch.ai/* https://daedarch.ai/:splat 301!
